@@ -12,6 +12,7 @@
 
   <title>Smart Parking</title>
 
+
   <style>
 
     * {
@@ -20,216 +21,385 @@
       padding: 0;
     }
 
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       background: #06111f;
+
       color: white;
+
       min-height: 100vh;
+
     }
 
+
     .container {
+
       width: 90%;
+
       max-width: 1250px;
+
       margin: auto;
+
       padding: 40px 0;
+
     }
+
 
     /* =========================
        HEADER
     ========================= */
 
     .header {
+
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       align-items: center;
+
       margin-bottom: 35px;
+
     }
+
 
     .title {
+
       display: flex;
+
       align-items: center;
+
       gap: 15px;
+
     }
+
 
     .icon {
+
       font-size: 48px;
+
     }
+
 
     h1 {
+
       font-size: 42px;
+
       margin-bottom: 8px;
+
     }
+
 
     .subtitle {
+
       color: #8ca8c7;
+
       font-size: 20px;
+
     }
+
 
     .connection {
+
       border: 1px solid #23415f;
+
       border-radius: 30px;
+
       padding: 13px 22px;
+
       color: #a8bfd8;
+
       background: #0b1b2d;
+
     }
 
+
     .dot {
+
       display: inline-block;
+
       width: 11px;
+
       height: 11px;
+
       background: #2bd67b;
+
       border-radius: 50%;
+
       margin-right: 8px;
+
     }
+
 
     /* =========================
        SUMMARY
     ========================= */
 
     .summary {
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 18px;
+
       margin-bottom: 40px;
+
     }
+
 
     .summary-card {
+
       background: #0b1b2d;
+
       border: 1px solid #23415f;
+
       border-radius: 20px;
+
       padding: 28px;
+
     }
+
 
     .summary-title {
+
       color: #8ca8c7;
+
       font-size: 15px;
+
       margin-bottom: 15px;
+
     }
+
 
     .summary-value {
+
       font-size: 38px;
+
       font-weight: bold;
+
     }
+
 
     .green {
+
       color: #2bd67b;
+
     }
 
+
     .red {
+
       color: #ff5b70;
+
     }
+
 
     /* =========================
        SECTION
     ========================= */
 
     .section-header {
+
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       align-items: center;
+
       margin-bottom: 20px;
+
     }
+
 
     .section-header h2 {
+
       font-size: 25px;
+
     }
 
+
     .updated {
+
       color: #7291b1;
+
       font-size: 14px;
+
     }
+
 
     /* =========================
        SLOT
     ========================= */
 
     .slots {
+
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 20px;
+
     }
+
 
     .slot {
+
       background: #0b1b2d;
+
       border: 1px solid #23415f;
+
       border-radius: 20px;
+
       padding: 25px;
+
     }
+
 
     .slot-header {
+
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       align-items: center;
+
       margin-bottom: 30px;
+
     }
+
 
     .slot-name {
+
       font-size: 24px;
+
       font-weight: bold;
+
     }
+
 
     .status {
+
       padding: 10px 15px;
+
       border-radius: 25px;
+
       font-size: 14px;
+
       font-weight: bold;
+
     }
+
 
     .status-kosong {
+
       background: #063c29;
+
       color: #2bd67b;
+
     }
+
 
     .status-terisi {
+
       background: #46151d;
+
       color: #ff5b70;
+
     }
+
 
     .parking-icon {
+
       font-size: 48px;
+
       margin-bottom: 20px;
+
     }
+
 
     .distance {
+
       color: #8ca8c7;
+
       font-size: 16px;
+
       margin-bottom: 20px;
+
     }
+
 
     .distance strong {
+
       color: white;
+
       font-size: 17px;
+
     }
+
 
     .bar {
+
       width: 100%;
+
       height: 6px;
+
       border-radius: 10px;
+
       background: #173149;
+
       overflow: hidden;
+
     }
+
 
     .bar-fill {
+
       height: 100%;
+
       background: #2bd67b;
+
       border-radius: 10px;
-      transition: width 0.3s ease;
+
+      transition:
+        width 0.3s ease;
+
     }
 
+
     .bar-fill.occupied {
+
       background: #ff5b70;
+
     }
+
 
     /* =========================
        ERROR
     ========================= */
 
     .error {
+
       color: #ff5b70;
+
       font-size: 14px;
+
       margin-top: 15px;
+
       word-break: break-word;
+
     }
+
 
     /* =========================
        RESPONSIVE
@@ -238,21 +408,38 @@
     @media (max-width: 800px) {
 
       .summary {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
+
 
       .slots {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
+
 
       .header {
-        flex-direction: column;
-        align-items: flex-start;
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
         gap: 20px;
+
       }
 
+
       h1 {
+
         font-size: 32px;
+
       }
 
     }
@@ -260,6 +447,7 @@
   </style>
 
 </head>
+
 
 
 <body>
@@ -274,11 +462,14 @@
 
   <div class="header">
 
+
     <div class="title">
+
 
       <div class="icon">
         🚗
       </div>
+
 
       <div>
 
@@ -286,13 +477,16 @@
           Smart Parking
         </h1>
 
+
         <div class="subtitle">
           Monitoring parkir berbasis IoT
         </div>
 
       </div>
 
+
     </div>
+
 
 
     <div class="connection">
@@ -302,6 +496,7 @@
       ONLINE • REALTIME
 
     </div>
+
 
   </div>
 
@@ -320,11 +515,13 @@
         TOTAL SLOT
       </div>
 
+
       <div
         class="summary-value"
-        id="totalSlot"
-      >
+        id="totalSlot">
+
         0
+
       </div>
 
     </div>
@@ -337,11 +534,13 @@
         TERSEDIA
       </div>
 
+
       <div
         class="summary-value green"
-        id="tersedia"
-      >
+        id="tersedia">
+
         0
+
       </div>
 
     </div>
@@ -354,11 +553,13 @@
         TERISI
       </div>
 
+
       <div
         class="summary-value red"
-        id="terisi"
-      >
+        id="terisi">
+
         0
+
       </div>
 
     </div>
@@ -369,21 +570,25 @@
 
 
   <!-- =========================
-       SLOT HEADER
+       STATUS
   ========================== -->
 
   <div class="section-header">
+
 
     <h2>
       Status Slot Parkir
     </h2>
 
+
     <div
       class="updated"
-      id="updated"
-    >
+      id="updated">
+
       Menghubungkan...
+
     </div>
+
 
   </div>
 
@@ -395,8 +600,8 @@
 
   <div
     class="slots"
-    id="slots"
-  >
+    id="slots">
+
   </div>
 
 
@@ -405,8 +610,8 @@
 
   <div
     class="error"
-    id="error"
-  >
+    id="error">
+
   </div>
 
 
@@ -418,7 +623,7 @@
 
 
 // ====================================================
-// SUPABASE CONFIG
+// SUPABASE
 // ====================================================
 
 const SUPABASE_URL =
@@ -429,99 +634,129 @@ const SUPABASE_KEY =
   "sb_publishable_txcZ3waxfqFqFQZiEDusVA_oH5A20tR";
 
 
+
 // ====================================================
-// AMBIL DATA DARI SUPABASE
+// LOAD DATA
 // ====================================================
 
 async function loadParkingData() {
+
 
   try {
 
 
     const url =
+
       SUPABASE_URL +
+
       "/rest/v1/parking_slots" +
+
       "?select=id,slot_name,status,distance" +
+
       "&order=id.asc";
 
 
+
     console.log(
-      "Mengambil data:",
+      "GET:",
       url
     );
 
 
+
+    // =================================================
+    // REQUEST SUPABASE
+    // =================================================
+
     const response =
+
       await fetch(
+
         url,
+
         {
 
           method: "GET",
 
+
           headers: {
 
-            "apikey":
-              SUPABASE_KEY,
+            // PENTING:
+            // HANYA APIKEY
+            // TIDAK menggunakan
+            // Authorization Bearer
 
-            "Authorization":
-              "Bearer " +
+            "apikey":
               SUPABASE_KEY
 
           },
 
+
           cache: "no-store"
 
         }
+
       );
 
 
+
     console.log(
-      "HTTP Status:",
+      "HTTP:",
       response.status
     );
 
 
-    // ================================================
-    // CEK RESPONSE
-    // ================================================
+
+    // =================================================
+    // CEK ERROR
+    // =================================================
 
     if (!response.ok) {
+
 
       const errorText =
         await response.text();
 
+
       throw new Error(
+
         "HTTP " +
+
         response.status +
+
         " : " +
+
         errorText
+
       );
 
     }
 
 
-    // ================================================
-    // JSON
-    // ================================================
+
+    // =================================================
+    // BACA JSON
+    // =================================================
 
     const data =
       await response.json();
 
 
+
     console.log(
-      "DATA SUPABASE:",
+      "DATA:",
       data
     );
 
 
-    // ================================================
+
+    // =================================================
     // UPDATE WEBSITE
-    // ================================================
+    // =================================================
 
     updateWebsite(data);
 
 
-    // Hilangkan error
 
     document.getElementById(
       "error"
@@ -535,7 +770,7 @@ async function loadParkingData() {
 
 
     console.error(
-      "SUPABASE ERROR:",
+      "ERROR:",
       error
     );
 
@@ -559,43 +794,52 @@ async function loadParkingData() {
 
 
 // ====================================================
-// UPDATE TAMPILAN WEBSITE
+// UPDATE WEBSITE
 // ====================================================
 
 function updateWebsite(data) {
 
 
-  // ================================================
-  // TOTAL SLOT
-  // ================================================
+  // ==================================================
+  // TOTAL
+  // ==================================================
 
   const total =
     data.length;
 
 
-  // ================================================
-  // SLOT TERISI
-  // ================================================
+
+  // ==================================================
+  // TERISI
+  // ==================================================
 
   const occupied =
+
     data.filter(
+
       slot =>
-        String(slot.status).toLowerCase() ===
+
+        String(
+          slot.status
+        ).toLowerCase() ===
         "terisi"
+
     ).length;
 
 
-  // ================================================
-  // SLOT TERSEDIA
-  // ================================================
+
+  // ==================================================
+  // TERSEDIA
+  // ==================================================
 
   const available =
     total - occupied;
 
 
-  // ================================================
-  // TAMPILKAN SUMMARY
-  // ================================================
+
+  // ==================================================
+  // SUMMARY
+  // ==================================================
 
   document.getElementById(
     "totalSlot"
@@ -616,9 +860,9 @@ function updateWebsite(data) {
 
 
 
-  // ================================================
-  // CONTAINER SLOT
-  // ================================================
+  // ==================================================
+  // SLOT CONTAINER
+  // ==================================================
 
   const slots =
     document.getElementById(
@@ -630,39 +874,50 @@ function updateWebsite(data) {
 
 
 
-  // ================================================
-  // BUAT CARD SETIAP SLOT
-  // ================================================
+  // ==================================================
+  // LOOP SLOT
+  // ==================================================
 
   data.forEach(
     slot => {
 
 
       const isOccupied =
-        String(slot.status).toLowerCase() ===
+
+        String(
+          slot.status
+        ).toLowerCase() ===
         "terisi";
 
 
+
       const statusText =
+
         isOccupied
           ? "TERISI"
           : "KOSONG";
 
 
+
       const statusClass =
+
         isOccupied
           ? "status-terisi"
           : "status-kosong";
 
 
+
       const distance =
-        Number(slot.distance) || 0;
+
+        Number(
+          slot.distance
+        ) || 0;
 
 
 
-      // ============================================
-      // BAR JARAK
-      // ============================================
+      // =================================================
+      // PROGRESS BAR
+      // =================================================
 
       let barWidth;
 
@@ -676,21 +931,28 @@ function updateWebsite(data) {
       else {
 
         barWidth =
+
           Math.min(
+
             Math.max(
+
               distance / 4,
+
               5
+
             ),
+
             100
+
           );
 
       }
 
 
 
-      // ============================================
+      // =================================================
       // CARD
-      // ============================================
+      // =================================================
 
       const card =
         document.createElement(
@@ -725,13 +987,11 @@ function updateWebsite(data) {
         </div>
 
 
-
         <div class="parking-icon">
 
           🅿️
 
         </div>
-
 
 
         <div class="distance">
@@ -747,18 +1007,22 @@ function updateWebsite(data) {
         </div>
 
 
-
         <div class="bar">
 
           <div
-            class="bar-fill ${
-              isOccupied
-                ? "occupied"
-                : ""
-            }"
+
+            class="bar-fill
+              ${
+                isOccupied
+                  ? "occupied"
+                  : ""
+              }
+            "
+
             style="
               width:${barWidth}%;
             "
+
           ></div>
 
         </div>
@@ -773,18 +1037,21 @@ function updateWebsite(data) {
 
 
     }
+
   );
 
 
 
-  // ================================================
-  // WAKTU UPDATE
-  // ================================================
+  // ==================================================
+  // UPDATE TIME
+  // ==================================================
 
   document.getElementById(
     "updated"
   ).textContent =
+
     "Diperbarui " +
+
     new Date().toLocaleTimeString(
       "id-ID"
     );
@@ -803,12 +1070,15 @@ loadParkingData();
 
 
 // ====================================================
-// UPDATE OTOMATIS SETIAP 2 DETIK
+// UPDATE SETIAP 2 DETIK
 // ====================================================
 
 setInterval(
+
   loadParkingData,
+
   2000
+
 );
 
 
