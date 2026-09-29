@@ -1,281 +1,290 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<title>Smart Parking</title>
 
-  <title>Smart Parking</title>
+<style>
 
-  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #06111f;
+  color: white;
+  min-height: 100vh;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #06111f;
-      color: white;
-      min-height: 100vh;
-    }
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: auto;
+  padding: 40px 0;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1250px;
-      margin: auto;
-      padding: 40px 0;
-    }
+/* HEADER */
 
-    /* ==============================
-       HEADER
-    ============================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 35px;
-    }
+.title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
-    .title {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+.icon {
+  font-size: 48px;
+}
 
-    .title .icon {
-      font-size: 48px;
-    }
+h1 {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 8px;
-    }
+.subtitle {
+  color: #8ca8c7;
+  font-size: 20px;
+}
 
-    .subtitle {
-      color: #8ca8c7;
-      font-size: 20px;
-    }
+.connection {
+  border: 1px solid #23415f;
+  border-radius: 30px;
+  padding: 13px 22px;
+  color: #a8bfd8;
+  background: #0b1b2d;
+}
 
-    .connection {
-      border: 1px solid #23415f;
-      border-radius: 30px;
-      padding: 13px 22px;
-      color: #a8bfd8;
-      background: #0b1b2d;
-    }
+.dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background: #2bd67b;
+  border-radius: 50%;
+  margin-right: 8px;
+}
 
-    .dot {
-      display: inline-block;
-      width: 11px;
-      height: 11px;
-      background: #2bd67b;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
+/* SUMMARY */
 
-    /* ==============================
-       SUMMARY
-    ============================== */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
 
-    .summary {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-bottom: 40px;
-    }
+.summary-card {
+  background: #0b1b2d;
+  border: 1px solid #23415f;
+  border-radius: 20px;
+  padding: 28px;
+}
 
-    .summary-card {
-      background: #0b1b2d;
-      border: 1px solid #23415f;
-      border-radius: 20px;
-      padding: 28px;
-    }
+.summary-title {
+  color: #8ca8c7;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
 
-    .summary-title {
-      color: #8ca8c7;
-      font-size: 15px;
-      margin-bottom: 15px;
-    }
+.summary-value {
+  font-size: 38px;
+  font-weight: bold;
+}
 
-    .summary-value {
-      font-size: 38px;
-      font-weight: bold;
-    }
+.green {
+  color: #2bd67b;
+}
 
-    .green {
-      color: #2bd67b;
-    }
+.red {
+  color: #ff5b70;
+}
 
-    .red {
-      color: #ff5b70;
-    }
+/* SECTION */
 
-    /* ==============================
-       SLOT
-    ============================== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+.section-header h2 {
+  font-size: 25px;
+}
 
-    .section-header h2 {
-      font-size: 25px;
-    }
+.updated {
+  color: #7291b1;
+  font-size: 14px;
+}
 
-    .updated {
-      color: #7291b1;
-      font-size: 14px;
-    }
+/* SLOT */
 
-    .slots {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+.slots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
 
-    .slot {
-      background: #0b1b2d;
-      border: 1px solid #23415f;
-      border-radius: 20px;
-      padding: 25px;
-    }
+.slot {
+  background: #0b1b2d;
+  border: 1px solid #23415f;
+  border-radius: 20px;
+  padding: 25px;
+}
 
-    .slot-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-    }
+.slot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
 
-    .slot-name {
-      font-size: 24px;
-      font-weight: bold;
-    }
+.slot-name {
+  font-size: 24px;
+  font-weight: bold;
+}
 
-    .status {
-      padding: 10px 15px;
-      border-radius: 25px;
-      font-size: 14px;
-      font-weight: bold;
-    }
+.status {
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+}
 
-    .status-kosong {
-      background: #063c29;
-      color: #2bd67b;
-    }
+.status-kosong {
+  background: #063c29;
+  color: #2bd67b;
+}
 
-    .status-terisi {
-      background: #46151d;
-      color: #ff5b70;
-    }
+.status-terisi {
+  background: #46151d;
+  color: #ff5b70;
+}
 
-    .parking-icon {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
+.parking-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
 
-    .distance {
-      color: #8ca8c7;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
+.distance {
+  color: #8ca8c7;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
 
-    .distance strong {
-      color: white;
-      font-size: 17px;
-    }
+.distance strong {
+  color: white;
+  font-size: 17px;
+}
 
-    .bar {
-      width: 100%;
-      height: 6px;
-      border-radius: 10px;
-      background: #173149;
-      overflow: hidden;
-    }
+.bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  background: #173149;
+  overflow: hidden;
+}
 
-    .bar-fill {
-      height: 100%;
-      background: #2bd67b;
-      border-radius: 10px;
-      transition: width 0.3s ease;
-    }
+.bar-fill {
+  height: 100%;
+  background: #2bd67b;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
 
-    .bar-fill.occupied {
-      background: #ff5b70;
-    }
+.bar-fill.occupied {
+  background: #ff5b70;
+}
 
-    /* ==============================
-       RESPONSIVE
-    ============================== */
+/* ERROR */
 
-    @media (max-width: 800px) {
+.error {
+  color: #ff5b70;
+  font-size: 14px;
+  margin-top: 15px;
+  word-break: break-word;
+}
 
-      .summary {
-        grid-template-columns: 1fr;
-      }
+/* RESPONSIVE */
 
-      .slots {
-        grid-template-columns: 1fr;
-      }
+@media (max-width: 800px) {
 
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
+  .summary {
+    grid-template-columns: 1fr;
+  }
 
-      h1 {
-        font-size: 32px;
-      }
+  .slots {
+    grid-template-columns: 1fr;
+  }
 
-    }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
 
-  </style>
+  h1 {
+    font-size: 32px;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
 <div class="container">
 
   <!-- HEADER -->
+
   <div class="header">
 
-    <div>
+    <div class="title">
 
-      <div class="title">
-        <div class="icon">🚗</div>
+      <div class="icon">
+        🚗
+      </div>
 
-        <div>
-          <h1>Smart Parking</h1>
+      <div>
 
-          <div class="subtitle">
-            Monitoring parkir berbasis IoT
-          </div>
+        <h1>
+          Smart Parking
+        </h1>
+
+        <div class="subtitle">
+          Monitoring parkir berbasis IoT
         </div>
 
       </div>
 
     </div>
 
+
     <div class="connection">
+
       <span class="dot"></span>
+
       ONLINE • REALTIME
+
     </div>
 
   </div>
 
 
   <!-- SUMMARY -->
+
   <div class="summary">
 
     <div class="summary-card">
@@ -286,8 +295,7 @@
 
       <div
         class="summary-value"
-        id="totalSlot"
-      >
+        id="totalSlot">
         0
       </div>
 
@@ -302,8 +310,7 @@
 
       <div
         class="summary-value green"
-        id="tersedia"
-      >
+        id="tersedia">
         0
       </div>
 
@@ -318,8 +325,7 @@
 
       <div
         class="summary-value red"
-        id="terisi"
-      >
+        id="terisi">
         0
       </div>
 
@@ -328,7 +334,8 @@
   </div>
 
 
-  <!-- SLOT HEADER -->
+  <!-- SECTION -->
+
   <div class="section-header">
 
     <h2>
@@ -337,19 +344,24 @@
 
     <div
       class="updated"
-      id="updated"
-    >
-      Memuat data...
+      id="updated">
+      Menghubungkan...
     </div>
 
   </div>
 
 
   <!-- SLOT -->
+
   <div
     class="slots"
-    id="slots"
-  >
+    id="slots">
+  </div>
+
+
+  <div
+    class="error"
+    id="error">
   </div>
 
 </div>
@@ -357,159 +369,202 @@
 
 <script>
 
-  // ==================================================
-  // SUPABASE
-  // ==================================================
+// ====================================================
+// SUPABASE
+// ====================================================
 
-  const SUPABASE_URL =
-    "https://xnedjeiqysvnfdbpicnp.supabase.co";
+const SUPABASE_URL =
+  "https://xnedjeiqysvnfdbpicnp.supabase.co";
 
-  const SUPABASE_KEY =
-    "sb_publishable_txcZ3waxFqFQZiEDusVA_oH5A20tR";
+const SUPABASE_KEY =
+  "sb_publishable_txcZ3waxFqFQZiEDusVA_oH5A20tR";
 
 
-  // ==================================================
-  // AMBIL DATA SUPABASE
-  // ==================================================
+// ====================================================
+// AMBIL DATA
+// ====================================================
 
-  async function loadParkingData() {
+async function loadParkingData() {
 
-    try {
+  try {
 
-      const url =
-        SUPABASE_URL +
-        "/rest/v1/parking_slots" +
-        "?select=id,slot_name,status,distance" +
-        "&order=id.asc";
+    const url =
+      SUPABASE_URL +
+      "/rest/v1/parking_slots" +
+      "?select=id,slot_name,status,distance" +
+      "&order=id.asc";
 
-      const response = await fetch(
-        url,
-        {
-          method: "GET",
 
-          headers: {
-            "apikey": SUPABASE_KEY,
-            "Authorization":
-              "Bearer " + SUPABASE_KEY
-          },
+    console.log("Mengambil:", url);
 
-          cache: "no-store"
-        }
+
+    const response =
+      await fetch(url, {
+
+        method: "GET",
+
+        headers: {
+
+          "apikey": SUPABASE_KEY
+
+        },
+
+        cache: "no-store"
+
+      });
+
+
+    console.log(
+      "HTTP:",
+      response.status
+    );
+
+
+    if (!response.ok) {
+
+      const errorText =
+        await response.text();
+
+      throw new Error(
+        "HTTP " +
+        response.status +
+        " : " +
+        errorText
       );
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          "HTTP " + response.status
-        );
-
-      }
-
-
-      const data =
-        await response.json();
-
-
-      console.log(
-        "Data Supabase:",
-        data
-      );
-
-
-      updateWebsite(data);
-
-
-    } catch (error) {
-
-      console.error(
-        "Gagal mengambil data:",
-        error
-      );
-
-      document.getElementById(
-        "updated"
-      ).textContent =
-        "Gagal mengambil data";
 
     }
 
+
+    const data =
+      await response.json();
+
+
+    console.log(
+      "DATA SUPABASE:",
+      data
+    );
+
+
+    updateWebsite(data);
+
+
+    document.getElementById(
+      "error"
+    ).textContent = "";
+
+
+  } catch (error) {
+
+    console.error(
+      "SUPABASE ERROR:",
+      error
+    );
+
+
+    document.getElementById(
+      "updated"
+    ).textContent =
+      "Gagal mengambil data";
+
+
+    document.getElementById(
+      "error"
+    ).textContent =
+      error.message;
+
   }
 
+}
+
+
+// ====================================================
+// UPDATE WEBSITE
+// ====================================================
+
+function updateWebsite(data) {
+
+
+  // TOTAL
+
+  const total =
+    data.length;
+
+
+  // TERISI
+
+  const occupied =
+    data.filter(
+      slot =>
+        slot.status === "terisi"
+    ).length;
+
+
+  // TERSEDIA
+
+  const available =
+    total - occupied;
+
+
+  document.getElementById(
+    "totalSlot"
+  ).textContent = total;
+
+
+  document.getElementById(
+    "tersedia"
+  ).textContent = available;
+
+
+  document.getElementById(
+    "terisi"
+  ).textContent = occupied;
+
 
   // ==================================================
-  // UPDATE WEBSITE
+  // SLOT
   // ==================================================
 
-  function updateWebsite(data) {
+  const slots =
+    document.getElementById("slots");
 
-    // ------------------------------
-    // SUMMARY
-    // ------------------------------
 
-    const total =
-      data.length;
+  slots.innerHTML = "";
+
+
+  data.forEach(slot => {
+
 
     const occupied =
-      data.filter(
-        slot =>
-          slot.status === "terisi"
-      ).length;
-
-    const available =
-      total - occupied;
+      slot.status === "terisi";
 
 
-    document.getElementById(
-      "totalSlot"
-    ).textContent = total;
+    const statusText =
+      occupied
+        ? "TERISI"
+        : "KOSONG";
 
 
-    document.getElementById(
-      "tersedia"
-    ).textContent = available;
+    const statusClass =
+      occupied
+        ? "status-terisi"
+        : "status-kosong";
 
 
-    document.getElementById(
-      "terisi"
-    ).textContent = occupied;
+    const distance =
+      Number(slot.distance) || 0;
 
 
-    // ------------------------------
-    // SLOT
-    // ------------------------------
+    // Bar
 
-    const slots =
-      document.getElementById("slots");
+    let barWidth;
 
+    if (occupied) {
 
-    slots.innerHTML = "";
+      barWidth = 100;
 
+    } else {
 
-    data.forEach(slot => {
-
-      const isOccupied =
-        slot.status === "terisi";
-
-
-      const statusText =
-        isOccupied
-          ? "TERISI"
-          : "KOSONG";
-
-
-      const statusClass =
-        isOccupied
-          ? "status-terisi"
-          : "status-kosong";
-
-
-      const distance =
-        Number(slot.distance || 0);
-
-
-      // Bar berdasarkan jarak
-      let barWidth =
+      barWidth =
         Math.min(
           Math.max(
             distance / 4,
@@ -518,106 +573,100 @@
           100
         );
 
-
-      if (isOccupied) {
-        barWidth = 100;
-      }
+    }
 
 
-      const card =
-        document.createElement("div");
+    // Card
+
+    const card =
+      document.createElement("div");
 
 
-      card.className =
-        "slot";
+    card.className =
+      "slot";
 
 
-      card.innerHTML = `
+    card.innerHTML = `
 
-        <div class="slot-header">
+      <div class="slot-header">
 
-          <div class="slot-name">
-            ${slot.slot_name}
-          </div>
-
-          <div class="status ${statusClass}">
-            ${statusText}
-          </div>
-
+        <div class="slot-name">
+          ${slot.slot_name}
         </div>
 
-
-        <div class="parking-icon">
-          🅿️
+        <div
+          class="status ${statusClass}">
+          ${statusText}
         </div>
 
+      </div>
 
-        <div class="distance">
 
-          Jarak sensor:
+      <div class="parking-icon">
+        🅿️
+      </div>
 
-          <strong>
-            ${distance.toFixed(1)} cm
-          </strong>
 
+      <div class="distance">
+
+        Jarak sensor:
+
+        <strong>
+          ${distance.toFixed(1)} cm
+        </strong>
+
+      </div>
+
+
+      <div class="bar">
+
+        <div
+          class="bar-fill ${
+            occupied
+              ? "occupied"
+              : ""
+          }"
+          style="width:${barWidth}%">
         </div>
 
+      </div>
 
-        <div class="bar">
-
-          <div
-            class="bar-fill ${
-              isOccupied
-                ? "occupied"
-                : ""
-            }"
-            style="width:${barWidth}%"
-          ></div>
-
-        </div>
-
-      `;
+    `;
 
 
-      slots.appendChild(card);
+    slots.appendChild(card);
 
-    });
-
-
-    // ------------------------------
-    // WAKTU UPDATE
-    // ------------------------------
-
-    const now =
-      new Date();
+  });
 
 
-    document.getElementById(
-      "updated"
-    ).textContent =
-      "Diperbarui " +
-      now.toLocaleTimeString(
-        "id-ID"
-      );
+  // WAKTU
 
-  }
+  document.getElementById(
+    "updated"
+  ).textContent =
+    "Diperbarui " +
+    new Date().toLocaleTimeString(
+      "id-ID"
+    );
 
-
-  // ==================================================
-  // LOAD PERTAMA
-  // ==================================================
-
-  loadParkingData();
+}
 
 
-  // ==================================================
-  // UPDATE OTOMATIS SETIAP 2 DETIK
-  // ==================================================
+// ====================================================
+// PERTAMA KALI
+// ====================================================
 
-  setInterval(
-    loadParkingData,
-    2000
-  );
+loadParkingData();
+
+
+// ====================================================
+// UPDATE SETIAP 2 DETIK
+// ====================================================
+
+setInterval(
+  loadParkingData,
+  2000
+);
 
 </script>
 
